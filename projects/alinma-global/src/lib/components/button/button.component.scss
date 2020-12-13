@@ -1,0 +1,44 @@
+.size-medium {
+  padding: 8px 15px;
+}
+
+.global-button {
+  width: auto;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  border-radius: 4px;
+  @extend .size-medium;
+
+  &--block {
+    width: 100%;
+  }
+
+
+  &--small {
+    padding: 5px 15px;
+  }
+
+  &--medium {
+    @extend .size-medium;
+  }
+
+  &--large {
+    padding: 11px 15px;
+  }
+}
+
+.success {
+  background: #4CAF50;
+  color: white;
+}
+
+.danger {
+  background: #F44336;
+  color: white;
+}
+
+.primary {
+  background: #03A9F4;
+  color: white;
+}

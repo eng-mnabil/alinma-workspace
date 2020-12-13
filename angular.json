@@ -3,5 +3,171 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "alinma-global": {
+      "projectType": "library",
+      "root": "projects/alinma-global",
+      "sourceRoot": "projects/alinma-global/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/alinma-global/tsconfig.lib.json",
+            "project": "projects/alinma-global/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/alinma-global/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/alinma-global/src/test.ts",
+            "tsConfig": "projects/alinma-global/tsconfig.spec.json",
+            "karmaConfig": "projects/alinma-global/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/alinma-global/tsconfig.lib.json",
+              "projects/alinma-global/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ersal": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ersal",
+      "sourceRoot": "projects/ersal/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ersal",
+            "index": "projects/ersal/src/index.html",
+            "main": "projects/ersal/src/main.ts",
+            "polyfills": "projects/ersal/src/polyfills.ts",
+            "tsConfig": "projects/ersal/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ersal/src/favicon.ico",
+              "projects/ersal/src/assets"
+            ],
+            "styles": [
+              "projects/ersal/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ersal/src/environments/environment.ts",
+                  "with": "projects/ersal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ersal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ersal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ersal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ersal/src/test.ts",
+            "polyfills": "projects/ersal/src/polyfills.ts",
+            "tsConfig": "projects/ersal/tsconfig.spec.json",
+            "karmaConfig": "projects/ersal/karma.conf.js",
+            "assets": [
+              "projects/ersal/src/favicon.ico",
+              "projects/ersal/src/assets"
+            ],
+            "styles": [
+              "projects/ersal/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ersal/tsconfig.app.json",
+              "projects/ersal/tsconfig.spec.json",
+              "projects/ersal/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ersal/e2e/protractor.conf.js",
+            "devServerTarget": "ersal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ersal:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "alinma-global",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }
