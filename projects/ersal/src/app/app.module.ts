@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AlinmaGlobalModule } from 'alinma-global';
+import { ButtonComponentModule } from 'alinma-global';
+import { DeviceService } from 'alinma-global';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,9 @@ import { AlinmaGlobalModule } from 'alinma-global';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AlinmaGlobalModule
+    ButtonComponentModule,
   ],
-  providers: [],
+  providers: [DeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

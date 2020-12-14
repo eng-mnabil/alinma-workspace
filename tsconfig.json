@@ -20,8 +20,12 @@
       "dom"
     ],
     "paths": {
+      "alinma-global/*": [
+        "projects/alinma-global/alinma-global/*",
+        "projects/alinma-global"
+      ],
       "alinma-global": [
-        "dist/alinma-global/alinma-global",
+        "dist/alinma-global/alinma-global/*",
         "dist/alinma-global"
       ]
     }

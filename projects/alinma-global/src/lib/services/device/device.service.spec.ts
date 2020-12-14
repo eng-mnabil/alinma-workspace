@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AlinmaGlobalService } from './alinma-global.service';
+import { DeviceService } from './device.service';
 
-describe('AlinmaGlobalService', () => {
-  let service: AlinmaGlobalService;
+describe('DeviceService', () => {
+  let service: DeviceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AlinmaGlobalService);
+    service = TestBed.inject(DeviceService);
   });
 
   it('should be created', () => {
